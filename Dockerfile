@@ -1,11 +1,10 @@
-FROM ttonline/php7:latest
+FROM ttonline/php:7.0
 
 COPY entrypoint.sh /entrypoint.sh
 
 ENV XDEBUG_ENABLED=0
 
 RUN chmod 777 /entrypoint.sh \
- && usermod -u 1000 www-data && usermod -G staff www-data \
  && mkdir -p /var/log/fpm/
 
 VOLUME ["/var/config-fpm/"]
